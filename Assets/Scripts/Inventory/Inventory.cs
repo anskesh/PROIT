@@ -169,10 +169,12 @@ public class Inventory : MonoBehaviour
         {            
             GameObject throwItem = Instantiate(itemPrefab, transform.parent.parent.parent.position + new Vector3(0,2,0), new Quaternion());
             ItemPrefabClass itemPrefabClass = throwItem.GetComponent<ItemPrefabClass>();
+
             itemPrefabClass.item.id = items[idInventory].id;
             itemPrefabClass.count = items[idInventory].count;
             itemPrefabClass.item.img = data.items[items[idInventory].id].img;
             itemPrefabClass.item.name = data.items[items[idInventory].id].name;
+
             items[idInventory].id = 0;
             items[idInventory].count = 0;
             items[idInventory].itemGameObj.GetComponent<Image>().sprite = data.items[0].img;

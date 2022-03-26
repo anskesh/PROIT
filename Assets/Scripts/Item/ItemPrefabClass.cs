@@ -12,6 +12,8 @@ public class ItemPrefabClass : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = item.img;
     }
 
+    
+
     public void DestroyItem()
     {
         Destroy(gameObject);
