@@ -24,6 +24,7 @@ public class Inventory : MonoBehaviour
     public Vector3 offset;
 
     public GameObject background;
+    public GameObject itemPrefab;
 
 
     public void Start()
@@ -71,7 +72,7 @@ public class Inventory : MonoBehaviour
                     if (items[i].count > maxItemStack)
                     {
                         count = items[i].count - maxItemStack;
-                        items[i].count = 64;
+                        items[i].count = 128;
                     }
                     else
                     {
@@ -129,6 +130,55 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public int AddItemToInventory(Item item, int count)
+    {
+        for (int i = 0; i < maxCount; i++)
+        {
+            if (items[i].id == item.id && items[i].count < maxItemStack)
+            {                
+                items[i].count += count;
+                if (items[i].count > maxItemStack)
+                {
+                    count = items[i].count - maxItemStack;
+                    items[i].count = maxItemStack;
+                    UpdateInventory();
+                    return AddItemToInventory(item, count);
+                }
+                UpdateInventory();
+                return 0;
+            }
+        }
+        for (int i = 0; i < maxCount; i++)
+        {
+            if (items[i].id == 0)
+            {
+                items[i].id = item.id;
+                items[i].count = count;
+                items[i].itemGameObj.GetComponent<Image>().sprite = data.items[item.id].img;
+                UpdateInventory();
+                return 0;
+            }            
+        }
+        UpdateInventory();
+        return count;
+    }
+
+    public void ThrowItem(int idInventory)
+    {
+        if (items[idInventory].id != 0)
+        {            
+            GameObject throwItem = Instantiate(itemPrefab, transform.parent.parent.parent.position + new Vector3(0,2,0), new Quaternion());
+            ItemPrefabClass itemPrefabClass = throwItem.GetComponent<ItemPrefabClass>();
+            itemPrefabClass.item.id = items[idInventory].id;
+            itemPrefabClass.count = items[idInventory].count;
+            itemPrefabClass.item.img = data.items[items[idInventory].id].img;
+            itemPrefabClass.item.name = data.items[items[idInventory].id].name;
+            items[idInventory].id = 0;
+            items[idInventory].count = 0;
+            items[idInventory].itemGameObj.GetComponent<Image>().sprite = data.items[0].img;
+            UpdateInventory();
+        }
+    }
 
     public void AddGraphics()
     {

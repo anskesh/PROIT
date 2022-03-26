@@ -95,16 +95,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3388535046972228726, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 161
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388535046972228726, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -166
+      objectReference: {fileID: 0}
     - target: {fileID: 5941456042026014888, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2377391591530150464}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[3].id
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[3].img
+      value: 
+      objectReference: {fileID: 21300000, guid: c5eed0a5d80280547bd2172223369a3b, type: 3}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[3].name
+      value: pickaxe
+      objectReference: {fileID: 0}
     - target: {fileID: 8629211361648734952, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
       propertyPath: m_Name
       value: InventoryCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+--- !u!1 &1009886015017079379 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 978204885634250029, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+  m_PrefabInstance: {fileID: 256878711570016126}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3104786765336501216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112,6 +141,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 370574990743014509, guid: 4278fc981e13a0946875c727b3a3e788, type: 3}
+      propertyPath: dataControler
+      value: 
+      objectReference: {fileID: 1009886015017079379}
     - target: {fileID: 858034764552135075, guid: 4278fc981e13a0946875c727b3a3e788, type: 3}
       propertyPath: m_Name
       value: Camera
