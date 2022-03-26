@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 2539738508121621138, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3101993219511957902, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -109,19 +113,79 @@ PrefabInstance:
       objectReference: {fileID: 2377391591530150464}
     - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
       propertyPath: items.Array.size
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
       propertyPath: items.Array.data[3].id
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[4].id
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[5].id
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[6].id
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[0].img
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[1].img
+      value: 
+      objectReference: {fileID: -2376758258213490438, guid: 1df33a58ea5de0343a7a7ee762488e9a, type: 3}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[2].img
+      value: 
+      objectReference: {fileID: 6232742816020895870, guid: 1df33a58ea5de0343a7a7ee762488e9a, type: 3}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
       propertyPath: items.Array.data[3].img
       value: 
-      objectReference: {fileID: 21300000, guid: c5eed0a5d80280547bd2172223369a3b, type: 3}
+      objectReference: {fileID: -3569232777630780389, guid: 1df33a58ea5de0343a7a7ee762488e9a, type: 3}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[4].img
+      value: 
+      objectReference: {fileID: 3379066624450153177, guid: 1df33a58ea5de0343a7a7ee762488e9a, type: 3}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[5].img
+      value: 
+      objectReference: {fileID: 1666225654822289539, guid: 1df33a58ea5de0343a7a7ee762488e9a, type: 3}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[6].img
+      value: 
+      objectReference: {fileID: 2860006914309871096, guid: 1df33a58ea5de0343a7a7ee762488e9a, type: 3}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[0].name
+      value: None
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[1].name
+      value: Iron Pickaxe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[2].name
+      value: Iron Axe
+      objectReference: {fileID: 0}
     - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
       propertyPath: items.Array.data[3].name
-      value: pickaxe
+      value: Gold Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[4].name
+      value: Gold Pickaxe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[5].name
+      value: Gold Axe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[6].name
+      value: Iron Sword
       objectReference: {fileID: 0}
     - target: {fileID: 8629211361648734952, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
       propertyPath: m_Name

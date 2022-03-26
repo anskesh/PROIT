@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour
             AddGraphics();
         }
 
-        for (int i = 0; i < maxCount; i++) // тест, рандомное заполнение
+        for (int i = 0; i < maxCount; i++) // С‚РµСЃС‚, СЂР°РЅРґРѕРјРЅРѕРµ Р·Р°РїРѕР»РЅРµРЅРёРµ
         {
             AddItem(i, data.items[Random.Range(0, data.items.Count)], Random.Range(1,99));
         }
