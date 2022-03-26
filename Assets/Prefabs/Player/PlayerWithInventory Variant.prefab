@@ -91,17 +91,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4441302566267525268, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
-      propertyPath: cam
+    - target: {fileID: 5941456042026014888, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2377391591530150464}
     - target: {fileID: 8629211361648734952, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
       propertyPath: m_Name
       value: InventoryCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8629211361648734952, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
@@ -163,6 +159,10 @@ PrefabInstance:
     - target: {fileID: 5580620817949570933, guid: 4278fc981e13a0946875c727b3a3e788, type: 3}
       propertyPath: m_Name
       value: PlayerWithInventory Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877018973045710830, guid: 4278fc981e13a0946875c727b3a3e788, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4278fc981e13a0946875c727b3a3e788, type: 3}
