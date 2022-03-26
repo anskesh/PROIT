@@ -206,10 +206,22 @@ PrefabInstance:
     - target: {fileID: 5909817939841629176, guid: bb51a61bd69e39d4dbfbc7b4f79403c8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11500000, guid: 316e557a9389b9e419f4fd66add66a78, type: 3}
+      objectReference: {fileID: 954008206}
     - target: {fileID: 5909817939841629176, guid: bb51a61bd69e39d4dbfbc7b4f79403c8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909817939841629176, guid: bb51a61bd69e39d4dbfbc7b4f79403c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Exit
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909817939841629176, guid: bb51a61bd69e39d4dbfbc7b4f79403c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Quit, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909817939841629176, guid: bb51a61bd69e39d4dbfbc7b4f79403c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5909817939841629178, guid: bb51a61bd69e39d4dbfbc7b4f79403c8, type: 3}
       propertyPath: m_Name
@@ -320,6 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 954008205}
   - component: {fileID: 954008204}
+  - component: {fileID: 954008206}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -353,6 +366,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &954008206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954008203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316e557a9389b9e419f4fd66add66a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1138236469 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5909817939841629179, guid: bb51a61bd69e39d4dbfbc7b4f79403c8, type: 3}
