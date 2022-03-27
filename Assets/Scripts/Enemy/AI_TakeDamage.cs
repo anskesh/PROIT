@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AI_TakeDamage : MonoBehaviour
 {
-    public float DamageValue = 25;
+    public float DamageValue = -25;
     private bool canDamage = false;
     private GameObject player;
 
@@ -18,7 +18,7 @@ public class AI_TakeDamage : MonoBehaviour
             if (tempTimer <= 0)
             {
                 tempTimer = timer;
-                player.GetComponent<PlayerConfig>().TakeDamage(DamageValue);
+                player.GetComponent<PlayerHealth>().ChangeHealth(DamageValue);
 
             }
             else

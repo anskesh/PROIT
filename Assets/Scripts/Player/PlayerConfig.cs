@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerConfig : MonoBehaviour
 {
-    private float health = 100;
-    private bool isdead = false;
+    
     private SpriteRenderer PlayerSpriteRender;
     private float x, y;
     private Vector3 MoveDelta;
@@ -35,15 +34,5 @@ public class PlayerConfig : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.LogError("Объект с тегом: " + collision.tag);
-    }
-
-    public void TakeDamage(float damageValue)
-    {
-        health -= damageValue;
-        Debug.Log(health);
-        if (health <= 0)
-        {
-            isdead = true;
-        }
     }
 }
