@@ -7,6 +7,7 @@ public class Resource : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private int type; // 0 - мобы, 1 - мелкие ресурсы, 2 - крупные ресурсы
     [SerializeField] private int id; // тип ресурса
+    private bool _isNear = false;
     private int _damage = 15;
     private Spawner _spawner;
     private int _health;
@@ -20,7 +21,7 @@ public class Resource : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (CanApplyDamage())
+        if (CanApplyDamage() && _isNear)
         {
             TakeDamage(_damage);
             _spawner.SpawnResource(id, Random.Range(2, 5));
@@ -40,5 +41,20 @@ public class Resource : MonoBehaviour, IPointerClickHandler
     private void Destroy()
     {
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "PlayerItemTrigger")
+        {
+            _isNear = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "PlayerItemTrigger")
+        {
+            _isNear = false;
+        }
     }
 }
