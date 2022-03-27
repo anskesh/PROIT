@@ -310,6 +310,14 @@ PrefabInstance:
       propertyPath: items.Array.data[17].name
       value: Strawberry
       objectReference: {fileID: 0}
+    - target: {fileID: 7316397747095008391, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4.4602966
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316397747095008391, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.1820068
+      objectReference: {fileID: 0}
     - target: {fileID: 7419636131725636815, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -366,15 +374,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1327977064098178974, guid: 4278fc981e13a0946875c727b3a3e788, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1327977064098178974, guid: 4278fc981e13a0946875c727b3a3e788, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1327977064098178974, guid: 4278fc981e13a0946875c727b3a3e788, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1327977064098178974, guid: 4278fc981e13a0946875c727b3a3e788, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
