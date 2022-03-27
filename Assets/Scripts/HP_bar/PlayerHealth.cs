@@ -30,7 +30,26 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthBar();
     }
 
-    public void ChangeHealth(float changeValue)
+    public void ApplyDamage(float changeValue)
+    {
+        if (isAlive)
+        {
+            cur_Health -= changeValue;
+
+            if (cur_Health <= 0)
+            {
+                cur_Health = 0;
+                Died();
+            }
+            else if (cur_Health > max_health)
+            {
+                cur_Health = max_health;
+            }
+            UpdateHealthBar();
+        }
+    }
+
+    public void AddHealth(float changeValue)
     {
         if (isAlive)
         {
@@ -46,7 +65,6 @@ public class PlayerHealth : MonoBehaviour
                 cur_Health = max_health;
             }
             UpdateHealthBar();
-            //Debug.Log(cur_Health);
         }
     }
 
