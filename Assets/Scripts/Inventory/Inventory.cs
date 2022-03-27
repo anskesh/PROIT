@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
     public GameObject gameObjShow;
     public GameObject InventoryMainObject;
     public int maxCount;
-    public int maxItemStack = 128;
+    public int maxItemStack = 32;
 
     public Camera cam;
     private EventSystem es;
@@ -37,7 +37,7 @@ public class Inventory : MonoBehaviour
 
         for (int i = 0; i < maxCount; i++) // тест, рандомное заполнение
         {
-            AddItem(i, data.items[Random.Range(0, data.items.Count)], Random.Range(1,99));
+            AddItem(i, data.items[Random.Range(0, data.items.Count)], Random.Range(1,maxItemStack));
         }
         UpdateInventory();
         background.SetActive(false);
@@ -105,7 +105,6 @@ public class Inventory : MonoBehaviour
         if (count > 1 && item.id != 0)
         {
             items[id].itemGameObj.GetComponentInChildren<Text>().text = count.ToString();
-
         }
         else
         {
@@ -169,11 +168,8 @@ public class Inventory : MonoBehaviour
         {            
             GameObject throwItem = Instantiate(itemPrefab, transform.parent.parent.parent.position + new Vector3(0,2,0), new Quaternion());
             ItemPrefabClass itemPrefabClass = throwItem.GetComponent<ItemPrefabClass>();
-
-            itemPrefabClass.item.id = items[idInventory].id;
-            itemPrefabClass.count = items[idInventory].count;
-            itemPrefabClass.item.img = data.items[items[idInventory].id].img;
-            itemPrefabClass.item.name = data.items[items[idInventory].id].name;
+            itemPrefabClass.ID = items[idInventory].id;
+            itemPrefabClass.Count = items[idInventory].count;
 
             items[idInventory].id = 0;
             items[idInventory].count = 0;
@@ -231,7 +227,7 @@ public class Inventory : MonoBehaviour
             currentItem = CopyInventoryItem(items[currentID]);
             movingObject.gameObject.SetActive(true);
             movingObject.GetComponent<Image>().sprite = data.items[currentItem.id].img;
-
+            
             AddItem(currentID, data.items[0], 0);
         }
         else
