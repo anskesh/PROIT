@@ -18,7 +18,7 @@ public class AI_TakeDamage : MonoBehaviour
             if (tempTimer <= 0)
             {
                 tempTimer = timer;
-                player.GetComponent<PlayerHealth>().ChangeHealth(DamageValue);
+                player.GetComponent<PlayerHealth>().ChangeHealth(-DamageValue);
 
             }
             else
