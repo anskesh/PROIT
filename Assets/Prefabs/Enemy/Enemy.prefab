@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5455540944097264725}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,8 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_health: 100
   Hp_bar: {fileID: 3350401136705032036}
-  dropItem: {fileID: 0}
-  itemID: 2
+  dropItem: {fileID: 4987578792240543392, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
+  itemID: 9
   minCount: 2
   maxCounnt: 10
   data: {fileID: 0}

@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class AI_TakeDamage : MonoBehaviour
 {
-    public float DamageValue = 25;
+    public int DamageValue = 25;
     private bool canDamage = false;
-    private GameObject player;
+    private PlayerHealth player;
 
     public float timer = 2;
     private float tempTimer;
@@ -18,10 +19,7 @@ public class AI_TakeDamage : MonoBehaviour
             if (tempTimer <= 0)
             {
                 tempTimer = timer;
-
-                player.GetComponent<PlayerHealth>().ApplyDamage(DamageValue);
-
-
+                player.ApplyDamage(DamageValue);
             }
             else
             {
@@ -35,7 +33,7 @@ public class AI_TakeDamage : MonoBehaviour
         if (collision.tag == "Player")
         {
             canDamage = true;
-            player = collision.gameObject;
+            player = collision.gameObject.GetComponent<PlayerHealth>();
         }
     }
 
