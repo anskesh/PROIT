@@ -12,32 +12,64 @@ public class CraftButton : MonoBehaviour
     private int countCraft;
 
     public DataBase data;
+    public Inventory inventory;
     public CraftSystem dataCraft;
 
     public Image img;
     public Text textCraft;
     public Text textNeed;
 
+    public GameObject itemPrefab;
+
     public void Start()
     {
         data = FindObjectOfType<DataBase>();
-        dataCraft = FindObjectOfType<CraftSystem>();    
+        dataCraft = FindObjectOfType<CraftSystem>();
+        inventory = FindObjectOfType<Inventory>();
         
         idCraft = dataCraft.craftItem[idButton].idCraft;
         countCraft = dataCraft.craftItem[idButton].countCraft;
-        Debug.Log(idCraft);
-        Debug.Log(countCraft);
 
         idNeed = new List<int>();
         countNeed = new List<int>();
 
-        Debug.Log(idNeed.Count);
-        Debug.Log(countNeed.Count);
-
         idNeed.AddRange(dataCraft.craftItem[idButton].idNeed);
         countNeed.AddRange(dataCraft.craftItem[idButton].countNeed);
-                
-               
+
+        textCraft.text = data.items[idCraft].name;
+        textNeed.text = null;
+        for (int i = 0; i < idNeed.Count; i++)
+        {
+            textNeed.text += data.items[idNeed[i]].name + " x" + countNeed[i] + "\n";
+        }
+
         img.sprite = data.items[idCraft].img;
     }
+
+    private void ThrowItem()
+    {
+        if (idCraft != 0)
+        {
+            GameObject throwItem = Instantiate(itemPrefab, transform.parent.parent.parent.position + new Vector3(0, -2, 0), new Quaternion());
+            ItemPrefabClass itemPrefabClass = throwItem.GetComponent<ItemPrefabClass>();
+            itemPrefabClass.ID = idCraft;
+            itemPrefabClass.Count = countCraft;
+        }
+    }
+
+    public void TouchToCraft()
+    {        
+        for (int i = 0; i < idNeed.Count; i++)
+        {
+            if (inventory.SumCountSameItem(idNeed[i]) < countNeed[i]) return;
+        }
+
+        for (int i = 0; i < idNeed.Count; i++)
+        {
+            inventory.DeleteCertainAmountItem(idNeed[i], countNeed[i]);
+        }
+
+        ThrowItem();
+    }
+    
 }

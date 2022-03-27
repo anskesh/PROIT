@@ -60,40 +60,53 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void SearchForSameItem(Item item, int count)
+    public List<int> SearchForSameItem(int idItem)
     {
+        List<int> allIdInventory = new List<int>();
         for (int i = 0; i < maxCount; i++)
         {
-            if (items[i].id == item.id)
+            if(items[i].id == idItem)
             {
-                if (items[i].count < maxItemStack)
-                {
-                    items[i].count += count;
-                    if (items[i].count > maxItemStack)
-                    {
-                        count = items[i].count - maxItemStack;
-                        items[i].count = 128;
-                    }
-                    else
-                    {
-                        count = 0;
-                        i = maxCount;
-                    }
-                }
+                allIdInventory.Add(i);
             }
         }
+        return allIdInventory;
+    }
 
-        if (count > 0)
+    public int SumCountSameItem(int idItem)
+    {
+        int sum = 0;
+        List<int> allIdInventory = SearchForSameItem(idItem);
+        for (int i = 0; i < allIdInventory.Count; i++)
         {
-            for (int i = 0; i < maxCount; i++)
+            sum += items[allIdInventory[i]].count;
+        }
+        return sum;
+    }
+
+    public void DeleteCertainAmountItem(int idItem, int count)
+    {
+        int sum = SumCountSameItem(idItem);
+        if (sum != 0)
+        {
+            List<int> allIdInventory = SearchForSameItem(idItem);
+            for (int i = 0; i < allIdInventory.Count; i++)
             {
-                if (items[i].id == 0)
+                if (count >= items[allIdInventory[i]].count)
                 {
-                    AddItem(i, item, count);
-                    i = maxCount;
+                    count -= items[allIdInventory[i]].count;
+                    DeleteItem(allIdInventory[i]);
+                }
+                else
+                {
+                    items[allIdInventory[i]].count -= count;
+                    UpdateInventory();
+                    return;
                 }
             }
         }
+        
+        
     }
 
     public void AddItem(int id, Item item, int count)
@@ -171,6 +184,17 @@ public class Inventory : MonoBehaviour
             itemPrefabClass.ID = items[idInventory].id;
             itemPrefabClass.Count = items[idInventory].count;
 
+            items[idInventory].id = 0;
+            items[idInventory].count = 0;
+            items[idInventory].itemGameObj.GetComponent<Image>().sprite = data.items[0].img;
+            UpdateInventory();
+        }
+    }
+
+    public void DeleteItem(int idInventory)
+    {
+        if (items[idInventory].id != 0)
+        {            
             items[idInventory].id = 0;
             items[idInventory].count = 0;
             items[idInventory].itemGameObj.GetComponent<Image>().sprite = data.items[0].img;
@@ -257,6 +281,7 @@ public class Inventory : MonoBehaviour
 
             movingObject.gameObject.SetActive(false);
         }
+        UpdateInventory();
     }
     public void MoveObject()
     {

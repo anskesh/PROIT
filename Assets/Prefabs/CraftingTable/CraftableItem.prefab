@@ -450,7 +450,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6354407512594519285}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8180650202262476991}
+        m_TargetAssemblyTypeName: CraftButton, Assembly-CSharp
+        m_MethodName: TouchToCraft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7665514085767753635
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,6 +729,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idButton: 0
+  data: {fileID: 0}
+  inventory: {fileID: 0}
+  dataCraft: {fileID: 0}
   img: {fileID: 9199121756464883013}
   textCraft: {fileID: 9177326882735577512}
   textNeed: {fileID: 8566958212072958040}
+  itemPrefab: {fileID: 4987578792240543392, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}

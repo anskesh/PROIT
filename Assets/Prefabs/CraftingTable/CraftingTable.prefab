@@ -146,6 +146,38 @@ MonoBehaviour:
     countCraft: 3
     idNeed: 0a000000
     countNeed: 01000000
+  - idCraft: 12
+    countCraft: 3
+    idNeed: 0f000000
+    countNeed: 01000000
+  - idCraft: 2
+    countCraft: 1
+    idNeed: 0c0000000e000000
+    countNeed: 0200000003000000
+  - idCraft: 1
+    countCraft: 1
+    idNeed: 0c0000000e000000
+    countNeed: 0200000003000000
+  - idCraft: 6
+    countCraft: 1
+    idNeed: 0c0000000e000000
+    countNeed: 0100000004000000
+  - idCraft: 5
+    countCraft: 1
+    idNeed: 0f00000007000000
+    countNeed: 0200000003000000
+  - idCraft: 4
+    countCraft: 1
+    idNeed: 0f00000007000000
+    countNeed: 0200000003000000
+  - idCraft: 3
+    countCraft: 1
+    idNeed: 0f00000007000000
+    countNeed: 0100000004000000
+  - idCraft: 13
+    countCraft: 1
+    idNeed: 0700000009000000
+    countNeed: 0500000003000000
   craftButton: {fileID: 9183890020910474999, guid: 4374312b0c53ba44d88fade7f6f6385a, type: 3}
   craftPlace: {fileID: 4052112984080685986}
 --- !u!1001 &4184167231237407165
