@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public float max_health = 100;
     private float cur_Health;
+    [SerializeField] private Animator animator;
     [SerializeField] private Image Hp_bar;
     [SerializeField] private GameObject dropItem;
     [SerializeField] private int itemID;
@@ -79,6 +80,7 @@ public class EnemyHealth : MonoBehaviour
     
     private void Died()
     {
+        animator.SetBool("isdead", true);
         ThrowItem();
         Destroy(gameObject);
     }
