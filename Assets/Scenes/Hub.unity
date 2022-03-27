@@ -175,6 +175,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3282495579252898644, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
+      propertyPath: id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282495579252898644, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
       propertyPath: count
       value: 120
       objectReference: {fileID: 0}
@@ -246,6 +250,10 @@ PrefabInstance:
     - target: {fileID: 3077223596495570075, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282495579252898644, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
+      propertyPath: id
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3282495579252898644, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
       propertyPath: count
@@ -2339,6 +2347,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3282495579252898644, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
+      propertyPath: id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282495579252898644, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
       propertyPath: count
       value: 120
       objectReference: {fileID: 0}
@@ -4241,20 +4253,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3282495579252898644, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
-      propertyPath: count
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 3282495579252898644, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
-      propertyPath: item.id
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3282495579252898644, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
-      propertyPath: item.img
-      value: 
-      objectReference: {fileID: -2376758258213490438, guid: 1df33a58ea5de0343a7a7ee762488e9a, type: 3}
-    - target: {fileID: 3282495579252898644, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
-      propertyPath: item.name
-      value: First
+      propertyPath: id
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4987578792240543392, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
       propertyPath: m_Name
