@@ -6,6 +6,18 @@ public class CraftSystem : MonoBehaviour
 {
     public GameObject canvas;
     public List<IDCraftItem> craftItem;
+    public GameObject craftButton;
+    public GameObject craftPlace;
+
+    public void Start()
+    {
+        for (int i = 0; i < craftItem.Count; i++)
+        {
+            GameObject mybutton = Instantiate(craftButton, craftPlace.transform);
+            mybutton.GetComponent<CraftButton>().idButton = i;
+        }
+        canvas.SetActive(false);
+    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,19 +36,14 @@ public class CraftSystem : MonoBehaviour
     }
 }
 
-[System.Serializable]
 
-public class IDItems
-{
-    public int idCraft;
-    public int count;    
-}
 
 [System.Serializable]
 
 public class IDCraftItem
 {
     public int idCraft;
-    public int count;
-    public List<IDItems> needItem;
+    public int countCraft;
+    public List<int> idNeed;
+    public List<int> countNeed;
 }

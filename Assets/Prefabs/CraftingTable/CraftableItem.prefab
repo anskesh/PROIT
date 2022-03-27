@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 2601899113392252416}
   - component: {fileID: 864866342618080634}
   - component: {fileID: 1630010862542011800}
-  - component: {fileID: 2454935377242998670}
+  - component: {fileID: 8180650202262476991}
   m_Layer: 0
   m_Name: CraftableItem
   m_TagString: Untagged
@@ -704,7 +704,7 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 2, y: 2}
   m_UseGraphicAlpha: 1
---- !u!114 &2454935377242998670
+--- !u!114 &8180650202262476991
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -717,3 +717,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idButton: 0
+  img: {fileID: 9199121756464883013}
+  textCraft: {fileID: 9177326882735577512}
+  textNeed: {fileID: 8566958212072958040}
