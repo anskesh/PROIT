@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthBar();
     }
 
-    public void ApplyDamage(float changeValue)
+    public void ApplyDamage(int changeValue)
     {
         if (isAlive)
         {
@@ -75,17 +75,11 @@ public class PlayerHealth : MonoBehaviour
         gameObject.GetComponent<PlayerConfig>().SpeedMultiply = 0;
         transform.position = new Vector3(0, 0, 0);
         SetMaxHealth();
-        ShowDeathSprite();
 
         yield return new WaitForSeconds(2);
         DeathImg.SetActive(false);
         isAlive = true;
         gameObject.GetComponent<PlayerConfig>().SpeedMultiply = speed;
-    }
-
-    private void ShowDeathSprite()
-    {
-
     }
 
     private void Died()

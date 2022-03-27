@@ -187,6 +187,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2123628069478756970}
     m_Modifications:
+    - target: {fileID: 156177550699977247, guid: 37bf48836c5dc404e97ef1153d99886e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8380403836875518265, guid: 37bf48836c5dc404e97ef1153d99886e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -274,6 +278,10 @@ PrefabInstance:
     - target: {fileID: 9222754731574257645, guid: 37bf48836c5dc404e97ef1153d99886e, type: 3}
       propertyPath: m_Name
       value: CraftCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222754731574257645, guid: 37bf48836c5dc404e97ef1153d99886e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37bf48836c5dc404e97ef1153d99886e, type: 3}

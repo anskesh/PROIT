@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour, IPointerClickHandler
 {
     public float max_health = 100;
     private float cur_Health;
@@ -13,6 +14,8 @@ public class EnemyHealth : MonoBehaviour
     
     [SerializeField] private int minCount;
     [SerializeField] private int maxCounnt;
+    private bool _isNear;
+    private int _damage = 20;
 
     public DataBase data;
 
@@ -23,6 +26,14 @@ public class EnemyHealth : MonoBehaviour
         data = FindObjectOfType<DataBase>();
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (_isNear)
+        {
+            ApplyDamage(_damage);
+        }
+    }
+    
     public void UpdateHealthBar()
     {
         Hp_bar.fillAmount = cur_Health / max_health;
@@ -33,7 +44,7 @@ public class EnemyHealth : MonoBehaviour
         UpdateHealthBar();
     }
 
-    public void ApplyDamage(float changeValue)
+    public void ApplyDamage(int changeValue)
     {
         cur_Health -= changeValue;
 
@@ -49,7 +60,7 @@ public class EnemyHealth : MonoBehaviour
         UpdateHealthBar();
     }
 
-    public void AddHealth(float changeValue)
+    public void AddHealth(int changeValue)
     {
         cur_Health += changeValue;
 
@@ -69,17 +80,28 @@ public class EnemyHealth : MonoBehaviour
     {       
         GameObject throwItem = Instantiate(dropItem, transform.position, new Quaternion());
         ItemPrefabClass itemPrefabClass = throwItem.GetComponent<ItemPrefabClass>();
-
-        itemPrefabClass.item.id = itemID;
-        itemPrefabClass.Count = Random.Range(minCount,maxCounnt);
-        itemPrefabClass.item.img = data.items[itemID].img;
-        throwItem.GetComponent<SpriteRenderer>().sprite = data.items[itemID].img;
-        itemPrefabClass.item.name = data.items[itemID].name;            
+        itemPrefabClass.ID = itemID;
+        itemPrefabClass.Count = Random.Range(minCount, maxCounnt);
     }
     
     private void Died()
     {
         ThrowItem();
         Destroy(gameObject);
+    }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "PlayerItemTrigger")
+        {
+            _isNear = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "PlayerItemTrigger")
+        {
+            _isNear = false;
+        }
     }
 }
