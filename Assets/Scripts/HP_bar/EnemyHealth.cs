@@ -1,22 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class EnemyHealth : MonoBehaviour, IPointerClickHandler
+public class EnemyHealth : MonoBehaviour
 {
     public float max_health = 100;
-    private float cur_Health;
-    [SerializeField] private Animator animator;
+    private float cur_Health;   
     [SerializeField] private Image Hp_bar;
     [SerializeField] private GameObject dropItem;
     [SerializeField] private int itemID;
     
     [SerializeField] private int minCount;
     [SerializeField] private int maxCounnt;
-    private bool _isNear;
-    private int _damage = 20;
 
     public DataBase data;
 
@@ -27,14 +23,6 @@ public class EnemyHealth : MonoBehaviour, IPointerClickHandler
         data = FindObjectOfType<DataBase>();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (_isNear)
-        {
-            ApplyDamage(_damage);
-        }
-    }
-    
     public void UpdateHealthBar()
     {
         Hp_bar.fillAmount = cur_Health / max_health;
@@ -45,7 +33,7 @@ public class EnemyHealth : MonoBehaviour, IPointerClickHandler
         UpdateHealthBar();
     }
 
-    public void ApplyDamage(int changeValue)
+    public void ApplyDamage(float changeValue)
     {
         cur_Health -= changeValue;
 
@@ -61,7 +49,7 @@ public class EnemyHealth : MonoBehaviour, IPointerClickHandler
         UpdateHealthBar();
     }
 
-    public void AddHealth(int changeValue)
+    public void AddHealth(float changeValue)
     {
         cur_Health += changeValue;
 
@@ -81,29 +69,17 @@ public class EnemyHealth : MonoBehaviour, IPointerClickHandler
     {       
         GameObject throwItem = Instantiate(dropItem, transform.position, new Quaternion());
         ItemPrefabClass itemPrefabClass = throwItem.GetComponent<ItemPrefabClass>();
-        itemPrefabClass.ID = itemID;
-        itemPrefabClass.Count = Random.Range(minCount, maxCounnt);
+
+        itemPrefabClass.item.id = itemID;
+        itemPrefabClass.Count = Random.Range(minCount,maxCounnt);
+        itemPrefabClass.item.img = data.items[itemID].img;
+        throwItem.GetComponent<SpriteRenderer>().sprite = data.items[itemID].img;
+        itemPrefabClass.item.name = data.items[itemID].name;            
     }
     
     private void Died()
-    {
-        animator.SetBool("isdead", true);
+    {        
         ThrowItem();
         Destroy(gameObject);
-    }
-    
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "PlayerItemTrigger")
-        {
-            _isNear = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "PlayerItemTrigger")
-        {
-            _isNear = false;
-        }
     }
 }
