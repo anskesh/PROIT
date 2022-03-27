@@ -56,18 +56,12 @@ public class EnemyHealth : MonoBehaviour
         ItemPrefabClass itemPrefabClass = throwItem.GetComponent<ItemPrefabClass>();
 
         itemPrefabClass.item.id = itemID;
-        itemPrefabClass.count = Random.Range(minCount,maxCounnt);
+        itemPrefabClass.Count = Random.Range(minCount,maxCounnt);
         itemPrefabClass.item.img = data.items[itemID].img;
         throwItem.GetComponent<SpriteRenderer>().sprite = data.items[itemID].img;
         itemPrefabClass.item.name = data.items[itemID].name;            
     }
-    private IEnumerator DeathScreen(float waitTime)
-    {
-        gameObject.GetComponent<PlayerConfig>().SpeedMultiply = 0;
-        yield return new WaitForSeconds(waitTime);
-        star.color = new Color(star.color.r, star.color.g, star.color.b, 255);
-        blinkCoroutine = null;
-    }
+    
     private void Died()
     {
         ThrowItem();
