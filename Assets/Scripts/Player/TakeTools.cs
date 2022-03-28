@@ -9,6 +9,7 @@ public class TakeTools : MonoBehaviour
     [CanBeNull] private Sprite _tool;
     [CanBeNull] private Item _item;
     private int _id;
+    private string _name;
     private SpriteRenderer _spriteTool;
     private Inventory _inventory;
 
@@ -16,6 +17,12 @@ public class TakeTools : MonoBehaviour
     {
         get => _id;
         private set => _id = value;
+    }
+
+    public string Name
+    {
+        get => _name;
+        private set => _name = value;
     }
     private void Start()
     {
