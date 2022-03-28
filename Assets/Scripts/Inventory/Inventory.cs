@@ -34,12 +34,10 @@ public class Inventory : MonoBehaviour
         {
             AddGraphics();
         }
-
-        for (int i = 0; i < maxCount; i++) // тест, рандомное заполнение
-        {
-            AddItem(i, data.items[Random.Range(0, data.items.Count)], Random.Range(1,maxItemStack));
-        }
-        UpdateInventory();
+        
+        Save save = FindObjectOfType<Save>();
+        save.Load();
+        
         background.SetActive(false);
     }
 

@@ -88,7 +88,7 @@ public class EnemyHealth : MonoBehaviour, IPointerClickHandler
     private void Died()
     {        
         ThrowItem();
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
     }
      
     private void OnTriggerEnter2D(Collider2D collision)
