@@ -54,7 +54,7 @@ public class TakeTools : MonoBehaviour
 
         if (Input.GetKey(KeyCode.E))
         {
-            if (_id == 17)
+            if (Id == 17)
             {
                 Heal();
             }
@@ -68,6 +68,7 @@ public class TakeTools : MonoBehaviour
 
     public void ClearTool()
     {
+        Id = 0;
         _spriteTool.sprite = null;
     }
     private void TakeTool(int[] ids)

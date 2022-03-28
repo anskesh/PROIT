@@ -90,7 +90,7 @@ public class EnemyHealth : MonoBehaviour, IPointerClickHandler
         Destroy(transform.parent.gameObject);
     }
      
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "PlayerItemTrigger")
         {

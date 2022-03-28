@@ -255,7 +255,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -1}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.5
 --- !u!114 &370574990743014509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,8 +389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c09dc283b46f8e54e9630eb541843ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_health: 100
-  Hp_bar: {fileID: 7916985930524798789}
+  maxHealth: 100
+  hpBar: {fileID: 0}
   DeathImg: {fileID: 0}
 --- !u!61 &8221483653500880984
 BoxCollider2D:
@@ -549,14 +549,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6275278843815662363, guid: a9ce33b1ff4a6cf4b925605c225605e0, type: 3}
   m_PrefabInstance: {fileID: 1575338621139014735}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7916985930524798789 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8647600554346019594, guid: a9ce33b1ff4a6cf4b925605c225605e0, type: 3}
-  m_PrefabInstance: {fileID: 1575338621139014735}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

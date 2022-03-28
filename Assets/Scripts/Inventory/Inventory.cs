@@ -117,6 +117,8 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
+        Item temp = SearchItemById(new []{idItem});
+        if (temp == null) FindObjectOfType<TakeTools>().ClearTool();
     }
 
     public void AddItem(int id, Item item, int count)
