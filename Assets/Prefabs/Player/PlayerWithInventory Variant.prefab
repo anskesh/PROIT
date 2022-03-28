@@ -319,6 +319,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e83a7ae593ec6c041ba46ca05dfa5fca, type: 3}
     - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
+      propertyPath: items.Array.data[9].name
+      value: Gel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212414605512681713, guid: f9db61d2ea0c0a4479def360435cf38a, type: 3}
       propertyPath: items.Array.data[17].name
       value: Strawberry
       objectReference: {fileID: 0}

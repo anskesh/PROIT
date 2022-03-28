@@ -213,12 +213,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max_health: 200
-  animator: {fileID: 0}
   Hp_bar: {fileID: 8045409312792502760}
   dropItem: {fileID: 4987578792240543392, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
-  itemID: 7
+  itemID: 17
   minCount: 1
-  maxCounnt: 10
+  maxCounnt: 3
   data: {fileID: 0}
 --- !u!95 &492204277067604233
 Animator:
