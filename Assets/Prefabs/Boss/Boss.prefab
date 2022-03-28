@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3530972400056900984}
   - component: {fileID: 1842861748901130512}
   - component: {fileID: 544179223409432616}
+  - component: {fileID: 3653996531926131407}
   m_Layer: 0
   m_Name: AttackTrigger
   m_TagString: Untagged
@@ -64,6 +65,25 @@ MonoBehaviour:
   timer: 2
   bossAI: {fileID: 2015826512186070659}
   animator: {fileID: 492204277067604233}
+--- !u!114 &3653996531926131407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5039435312888521116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8181ea22cf440654e9cd3d19fe09870f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max_health: 200
+  Hp_bar: {fileID: 8045409312792502760}
+  dropItem: {fileID: 4987578792240543392, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
+  itemID: 17
+  minCount: 1
+  maxCounnt: 3
+  data: {fileID: 0}
 --- !u!1 &7033537845289836151
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,7 +96,6 @@ GameObject:
   - component: {fileID: 437047718224553414}
   - component: {fileID: 8071911788472579942}
   - component: {fileID: 6747969624043517881}
-  - component: {fileID: 2335649596674836244}
   - component: {fileID: 492204277067604233}
   m_Layer: 0
   m_Name: Boss
@@ -200,25 +219,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.16999999}
   m_EdgeRadius: 0
---- !u!114 &2335649596674836244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7033537845289836151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8181ea22cf440654e9cd3d19fe09870f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  max_health: 200
-  Hp_bar: {fileID: 8045409312792502760}
-  dropItem: {fileID: 4987578792240543392, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
-  itemID: 17
-  minCount: 1
-  maxCounnt: 3
-  data: {fileID: 0}
 --- !u!95 &492204277067604233
 Animator:
   serializedVersion: 3

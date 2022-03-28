@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -70,6 +71,19 @@ public class Inventory : MonoBehaviour
         }
         return allIdInventory;
     }
+    
+    public Item SearchItemById(int [] id)
+    {
+        foreach (var item in items)
+        {
+            for (var i = 0; i < id.Length; i++)
+                if (item.id == id[i])
+                {
+                    return data.GetItemByID(id[i]);
+                }
+        }
+        return null;
+    }
 
     public int SumCountSameItem(int idItem)
     {
@@ -103,8 +117,6 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
-        
-        
     }
 
     public void AddItem(int id, Item item, int count)
@@ -176,16 +188,24 @@ public class Inventory : MonoBehaviour
     public void ThrowItem(int idInventory)
     {
         if (items[idInventory].id != 0)
-        {            
+        {   
             GameObject throwItem = Instantiate(itemPrefab, transform.parent.parent.parent.position + new Vector3(0,2,0), new Quaternion());
             ItemPrefabClass itemPrefabClass = throwItem.GetComponent<ItemPrefabClass>();
             itemPrefabClass.ID = items[idInventory].id;
             itemPrefabClass.Count = items[idInventory].count;
 
+            TakeTools _takeTools;
+            _takeTools = FindObjectOfType<TakeTools>();
+            if (items[idInventory].id == _takeTools.Id)
+            {
+                _takeTools.ClearTool();
+            }
+
             items[idInventory].id = 0;
             items[idInventory].count = 0;
             items[idInventory].itemGameObj.GetComponent<Image>().sprite = data.items[0].img;
             UpdateInventory();
+            
         }
     }
 

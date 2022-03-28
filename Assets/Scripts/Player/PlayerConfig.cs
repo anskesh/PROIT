@@ -22,17 +22,12 @@ public class PlayerConfig : MonoBehaviour
         MoveDelta = new Vector3(x, y, 0);
         if (x < 0)
         {
-            PlayerSpriteRender.flipX = false;
+            transform.localScale = new Vector3(1, 1, 1);
         }
         else if (x > 0)
         {
-            PlayerSpriteRender.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         transform.Translate(MoveDelta * Time.deltaTime);        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //Debug.LogError("Объект с тегом: " + collision.tag);
     }
 }

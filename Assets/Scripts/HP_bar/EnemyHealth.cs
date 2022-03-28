@@ -33,7 +33,6 @@ public class EnemyHealth : MonoBehaviour, IPointerClickHandler
         }
     }
 
-
     public void UpdateHealthBar()
     {
         Hp_bar.fillAmount = cur_Health / max_health;
