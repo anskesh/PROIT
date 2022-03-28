@@ -37,7 +37,7 @@ public class Inventory : MonoBehaviour
         }
         
         Save save = FindObjectOfType<Save>();
-        save.Load();
+        save.LoadInventory();
         
         background.SetActive(false);
     }

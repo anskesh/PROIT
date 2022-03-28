@@ -173,7 +173,7 @@ MonoBehaviour:
     name: Blue teleport
     img: {fileID: 5519910655313491484, guid: de6b9f259c9798f42adf7da2347d3461, type: 3}
   - id: 9
-    name: Mucus
+    name: Gel
     img: {fileID: 8235702004056109275, guid: de6b9f259c9798f42adf7da2347d3461, type: 3}
   - id: 10
     name: Wood
@@ -196,6 +196,9 @@ MonoBehaviour:
   - id: 16
     name: Blood of minotaur
     img: {fileID: 21300000, guid: 1a17279cf32a2aa47ab2d8709b26595d, type: 3}
+  - id: 17
+    name: Strawberry
+    img: {fileID: 21300000, guid: e83a7ae593ec6c041ba46ca05dfa5fca, type: 3}
 --- !u!114 &4441302566267525268
 MonoBehaviour:
   m_ObjectHideFlags: 0

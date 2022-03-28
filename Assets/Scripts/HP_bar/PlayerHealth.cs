@@ -5,12 +5,22 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float max_health = 100;
-    private float cur_Health;
+    public int maxHealth = 100;
+    private int currentHealth;
     private bool isAlive;
-    [SerializeField] private Image Hp_bar;
+    [SerializeField] private Image hpBar;
     public GameObject DeathImg;
     private Inventory inventory;
+
+    public int Health
+    {
+        get => currentHealth;
+        set
+        {
+            if (value > maxHealth) value = maxHealth;
+            currentHealth = value;
+        }
+    }
 
     public void Awake()
     {
@@ -18,15 +28,23 @@ public class PlayerHealth : MonoBehaviour
         isAlive = true;
         UpdateHealthBar();
         inventory = FindObjectOfType<Inventory>().GetComponent<Inventory>();
+        Save save = FindObjectOfType<Save>();
+        SetSaveHealth(save.LoadHealth());
     }
 
-    public void UpdateHealthBar()
+    private void UpdateHealthBar()
     {
-        Hp_bar.fillAmount = cur_Health / max_health;
+        hpBar.fillAmount = currentHealth / (float) maxHealth;
     }
-    public void SetMaxHealth()
+    private void SetMaxHealth()
     {
-        cur_Health = max_health;
+        currentHealth = maxHealth;
+        UpdateHealthBar();
+    }
+
+    private void SetSaveHealth(int health)
+    {
+        currentHealth = health;
         UpdateHealthBar();
     }
 
@@ -34,35 +52,31 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isAlive)
         {
-            cur_Health -= changeValue;
+            currentHealth -= changeValue;
 
-            if (cur_Health <= 0)
+            if (currentHealth <= 0)
             {
-                cur_Health = 0;
+                currentHealth = 0;
                 Died();
-            }
-            else if (cur_Health > max_health)
-            {
-                cur_Health = max_health;
             }
             UpdateHealthBar();
         }
     }
 
-    public void AddHealth(float changeValue)
+    public void AddHealth(int changeValue)
     {
         if (isAlive)
         {
-            cur_Health += changeValue;
+            currentHealth += changeValue;
 
-            if (cur_Health <= 0)
+            if (currentHealth <= 0)
             {
-                cur_Health = 0;
+                currentHealth = 0;
                 Died();
             }
-            else if (cur_Health > max_health)
+            else if (currentHealth > maxHealth)
             {
-                cur_Health = max_health;
+                currentHealth = maxHealth;
             }
             UpdateHealthBar();
         }

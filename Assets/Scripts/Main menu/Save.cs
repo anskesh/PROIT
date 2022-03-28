@@ -10,29 +10,27 @@ public class Save : MonoBehaviour
 	[CanBeNull] private Inventory _inventory;
 	private List<ItemInventory> _items;
 	private int _count;
+	private int _health = 100;
 	private List<string> _allItemsInfo;
 	private SaveObjects _saveObjects = new SaveObjects();
 	private readonly  string _path = Application.streamingAssetsPath + "/allDataToSave.json";
 	private string _json;
 	private ItemInventory _template;
 
-	/*private void Start()
-	{
-		Load();
-	}*/
-
-	private void FindInventory()
+	private void FindNeedItem()
 	{
 		_inventory = FindObjectOfType<Inventory>();
 		if (!_inventory) return;
 		_items = _inventory.items;
 		_count = _items.Count;
 		_allItemsInfo = new List<string>();
+		_health = FindObjectOfType<PlayerHealth>().Health;
 	}
+	
 
 	public void SaveAll()
 	{
-		FindInventory();
+		FindNeedItem();
 		if (!_inventory) return;
 		for (int i = 0; i < _count; i++)
 		{
@@ -41,19 +39,25 @@ public class Save : MonoBehaviour
 
 		_saveObjects.items = _allItemsInfo;
 		_saveObjects.caveOpen = true;
+		_saveObjects.health = _health;
 		_json = JsonUtility.ToJson(_saveObjects);
 		File.WriteAllText(_path, _json);
 	}
 
-	public void Load()
+	private void Load()
 	{
-		FindInventory();
+		_json = File.ReadAllText(_path);
+		_saveObjects = JsonUtility.FromJson<SaveObjects>(_json);
+	}
+
+	public void LoadInventory()
+	{
+		Load();
+		FindNeedItem();
 		if (!_inventory) return;
 		int id = 0;
 		int count = 0;
 		string[] items;
-		_json = File.ReadAllText(_path);
-		_saveObjects = JsonUtility.FromJson<SaveObjects>(_json);
 		
 		int index = 0;
 		foreach (var item in _saveObjects.items)
@@ -70,9 +74,16 @@ public class Save : MonoBehaviour
 
 		}
 	}
+
+	public int LoadHealth()
+	{
+		Load();
+		_health = _saveObjects.health;
+		return _health;
+	}
 	public void NewGame()
 	{
-		_json = "{}";
+		_json = "{\"items\":[\"0 0\",\"0 0\",\"0 0\",\"0 0\",\"0 0\",\"0 0\",\"0 0\",\"0 0\",\"0 0\",\"0 0\",\"0 0\",\"0 0\"],\"caveOpen\":false,\"health\":100}";
 		File.WriteAllText(_path, _json);
 	}
 }
@@ -82,6 +93,7 @@ public class SaveObjects
 {
 	public List<string> items;
 	public bool caveOpen;
+	public int health;
 }
 
 

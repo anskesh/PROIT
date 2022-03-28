@@ -27,7 +27,6 @@ public class Resource : MonoBehaviour, IPointerClickHandler
         {
             TakeDamage(_damage);
             _count[0] = Random.Range(3, 5);
-            if (type == 0) type = 1;
             _count[1] = Random.Range(0, 3) * type;
             _spawner.SpawnResource(id, _count);
         }

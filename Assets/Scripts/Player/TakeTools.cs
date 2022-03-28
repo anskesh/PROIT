@@ -46,6 +46,24 @@ public class TakeTools : MonoBehaviour
         {
             TakeTool(new []{2, 5});
         }
+
+        if (Input.GetKey(KeyCode.Alpha4))
+        {
+            if (_id != 17) TakeTool(new []{17});
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            if (_id == 17)
+            {
+                Heal();
+            }
+        }
+
+        if (Input.GetKey(KeyCode.Alpha5))
+        {
+            ClearTool();
+        }
     }
 
     public void ClearTool()
@@ -59,5 +77,15 @@ public class TakeTools : MonoBehaviour
         _tool = _item.img;
         _id = _item.id;
         _spriteTool.sprite = _tool;
+    }
+
+    private void Heal(int heal = 15)
+    {
+        PlayerHealth _playerHealth = FindObjectOfType<PlayerHealth>();
+        if (_playerHealth.Health < 100)
+        {
+            _playerHealth.AddHealth(heal);
+            _inventory.DeleteCertainAmountItem(_id, 1);
+        }
     }
 }
