@@ -121,7 +121,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.002730295, y: -0.40681022}
+  m_Offset: {x: -0.0008753538, y: -0.3753734}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -132,7 +132,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9003297, y: 0.124933004}
+  m_Size: {x: 0.950809, y: 0.18780667}
   m_EdgeRadius: 0
 --- !u!1 &6640556726653822587
 GameObject:
@@ -271,12 +271,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8181ea22cf440654e9cd3d19fe09870f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_health: 100
-  Hp_bar: {fileID: 3350401136705032036}
+  maxHealth: 100
+  hpBar: {fileID: 3350401136705032036}
   dropItem: {fileID: 4987578792240543392, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
   itemID: 9
   minCount: 2
-  maxCounnt: 10
+  maxCount: 9
   data: {fileID: 0}
 --- !u!1001 &6232268258437608558
 PrefabInstance:
@@ -285,6 +285,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8280221254286948110}
     m_Modifications:
+    - target: {fileID: 379973948073752225, guid: a9ce33b1ff4a6cf4b925605c225605e0, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2306644186113176964, guid: a9ce33b1ff4a6cf4b925605c225605e0, type: 3}
       propertyPath: m_Name
       value: HP_canvas
@@ -371,6 +375,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6275278843815662363, guid: a9ce33b1ff4a6cf4b925605c225605e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647600554346019594, guid: a9ce33b1ff4a6cf4b925605c225605e0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647600554346019594, guid: a9ce33b1ff4a6cf4b925605c225605e0, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8980682199334497956, guid: a9ce33b1ff4a6cf4b925605c225605e0, type: 3}

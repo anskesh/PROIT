@@ -7,6 +7,8 @@ TagManager:
   - PlayerItemTrigger
   - Item
   - Enemy
+  - PlayerHp
+  - Info
   layers:
   - Default
   - TransparentFX

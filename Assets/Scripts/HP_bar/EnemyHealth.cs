@@ -6,14 +6,14 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour, IPointerClickHandler
 {
-    public float max_health = 100;
-    private float cur_Health;   
-    [SerializeField] private Image Hp_bar;
+    public float maxHealth = 100;
+    private float currentHealth;   
+    [SerializeField] private Image hpBar;
     [SerializeField] private GameObject dropItem;
     [SerializeField] private int itemID;
-    
     [SerializeField] private int minCount;
-    [SerializeField] private int maxCounnt;
+    [SerializeField] private int maxCount;
+    
     private bool _isNear;
     private int _damage = 20;
     public DataBase data;
@@ -33,44 +33,40 @@ public class EnemyHealth : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void UpdateHealthBar()
+    private void UpdateHealthBar()
     {
-        Hp_bar.fillAmount = cur_Health / max_health;
+        hpBar.fillAmount = currentHealth / maxHealth;
     }
-    public void SetMaxHealth()
+    private void SetMaxHealth()
     {
-        cur_Health = max_health;
+        currentHealth = maxHealth;
         UpdateHealthBar();
     }
 
-    public void ApplyDamage(float changeValue)
+    private void ApplyDamage(int changeValue)
     {
-        cur_Health -= changeValue;
+        currentHealth -= changeValue;
 
-        if (cur_Health <= 0)
+        if (currentHealth <= 0)
         {
-            cur_Health = 0;
-            Died();
-        }
-        else if (cur_Health > max_health)
-        {
-            cur_Health = max_health;
+            currentHealth = 0;
+            Dead();
         }
         UpdateHealthBar();
     }
 
     public void AddHealth(float changeValue)
     {
-        cur_Health += changeValue;
+        currentHealth += changeValue;
 
-        if (cur_Health <= 0)
+        if (currentHealth <= 0)
         {
-            cur_Health = 0;
-            Died();
+            currentHealth = 0;
+            Dead();
         }
-        else if (cur_Health > max_health)
+        else if (currentHealth > maxHealth)
         {
-            cur_Health = max_health;
+            currentHealth = maxHealth;
         }
         UpdateHealthBar();
     }
@@ -81,10 +77,10 @@ public class EnemyHealth : MonoBehaviour, IPointerClickHandler
         ItemPrefabClass itemPrefabClass = throwItem.GetComponent<ItemPrefabClass>();
 
         itemPrefabClass.ID = itemID;
-        itemPrefabClass.Count = Random.Range(minCount, maxCounnt);   
+        itemPrefabClass.Count = Random.Range(minCount, maxCount);   
     }
     
-    private void Died()
+    private void Dead()
     {        
         ThrowItem();
         Destroy(transform.parent.gameObject);

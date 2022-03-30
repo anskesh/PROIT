@@ -440,9 +440,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4812939516289075028, guid: 4278fc981e13a0946875c727b3a3e788, type: 3}
+    - target: {fileID: 4229513490849478059, guid: 4278fc981e13a0946875c727b3a3e788, type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812939516289075028, guid: 4278fc981e13a0946875c727b3a3e788, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5230190654506396616, guid: 4278fc981e13a0946875c727b3a3e788, type: 3}
       propertyPath: m_SortingOrder
@@ -452,6 +456,10 @@ PrefabInstance:
       propertyPath: m_SpriteSortPoint
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5401128215649013930, guid: 4278fc981e13a0946875c727b3a3e788, type: 3}
+      propertyPath: m_FirstSelected
+      value: 
+      objectReference: {fileID: 2377391591530150467}
     - target: {fileID: 5580620817949570933, guid: 4278fc981e13a0946875c727b3a3e788, type: 3}
       propertyPath: m_Name
       value: PlayerWithInventory Variant
@@ -465,6 +473,11 @@ PrefabInstance:
 --- !u!4 &4142052743953480830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1327977064098178974, guid: 4278fc981e13a0946875c727b3a3e788, type: 3}
+  m_PrefabInstance: {fileID: 3104786765336501216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2377391591530150467 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 858034764552135075, guid: 4278fc981e13a0946875c727b3a3e788, type: 3}
   m_PrefabInstance: {fileID: 3104786765336501216}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2377391591530150591 stripped
