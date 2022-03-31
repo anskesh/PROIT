@@ -22,14 +22,12 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void Awake()
+    public void Start()
     {
-        SetMaxHealth();
         isAlive = true;
+        FindObjectOfType<Load>().LoadHealth();
         UpdateHealthBar();
         inventory = FindObjectOfType<Inventory>().GetComponent<Inventory>();
-        Save save = FindObjectOfType<Save>();
-        SetSaveHealth(save.LoadHealth());
     }
 
     private void UpdateHealthBar()
@@ -82,10 +80,10 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    IEnumerator DeathScreen()
+    private IEnumerator DeathScreen()
     {
         DeathImg.SetActive(true);
-        float speed = gameObject.GetComponent<PlayerConfig>().SpeedMultiply;
+        var speed = gameObject.GetComponent<PlayerConfig>().SpeedMultiply;
         gameObject.GetComponent<PlayerConfig>().SpeedMultiply = 0;
         transform.position = new Vector3(0, 0, 0);
         SetMaxHealth();
@@ -99,7 +97,7 @@ public class PlayerHealth : MonoBehaviour
     private void Died()
     {
         isAlive = false;
-        for (int i = 0; i < inventory.maxCount; i++)
+        for (var i = 0; i < inventory.maxCount; i++)
         {
             inventory.ThrowItem(i);
         }

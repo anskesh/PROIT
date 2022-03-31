@@ -22,7 +22,6 @@ public class BossAttack : MonoBehaviour
         speed = bossAI.SpeedMultiply;
     }
 
-
     public void FixedUpdate()
     {
 
@@ -32,9 +31,7 @@ public class BossAttack : MonoBehaviour
             {
                 attackCooldown = timer;
                 StartCoroutine(Attack());
-            }   
-
-
+            }
         }
         else
         {
@@ -48,16 +45,12 @@ public class BossAttack : MonoBehaviour
                 specCooldown = timer*10;
                 StartCoroutine(SpecAttack());
             }
-
-
         }
         else
         {
             specCooldown -= Time.deltaTime;
         }
     }
-
-    
 
     public void OnTriggerEnter2D(Collider2D collision)
     {

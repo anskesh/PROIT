@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5039435312888521116}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 205907331490713131}
   m_RootOrder: 0
@@ -77,12 +77,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8181ea22cf440654e9cd3d19fe09870f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_health: 200
-  Hp_bar: {fileID: 8045409312792502760}
+  maxHealth: 100
+  hpBar: {fileID: 8045409312792502760}
   dropItem: {fileID: 4987578792240543392, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
   itemID: 16
   minCount: 1
-  maxCounnt: 3
+  maxCount: 0
   data: {fileID: 0}
 --- !u!1 &7033537845289836151
 GameObject:
@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 7033537845289836151}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 2}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 3530972400056900984}
   - {fileID: 5066697293469707772}
@@ -210,7 +210,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.24, y: 1.28}
+    oldSize: {x: 2.90625, y: 3}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

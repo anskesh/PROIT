@@ -47,20 +47,14 @@ public class Resource : MonoBehaviour, IPointerClickHandler
             if (tool.Name.Contains(tools[typeTool - 1])) return true;
             else
             {
-                string toolName = tools[typeTool - 1];
-                StartCoroutine(ShowText(toolName));
+                string toolName = tools[typeTool - 1]; 
+                StartCoroutine(FindObjectOfType<Coroutines>().ShowText(toolName));
                 return false;
             }
         }
         else return true;
     }
-    private IEnumerator ShowText(string text)
-    {
-        var info = GameObject.FindGameObjectWithTag("Info").GetComponent<TextMeshProUGUI>();
-        info.text = "Требуется " + text;
-        yield return new WaitForSecondsRealtime(1f);
-        info.text = "";
-    }
+  
     private bool CanApplyDamage() =>_health > 0;
     private void TakeDamage(int damage)
     {

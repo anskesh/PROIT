@@ -16,10 +16,7 @@ public class ChangerScenes : MonoBehaviour
 
 	public void ChangeScene(int targetScene)
 	{
-		if (gameObject.TryGetComponent(out Save save))
-		{
-			save.SaveAll();
-		}
+		FindObjectOfType<Save>().SaveAll(targetScene);
 		SceneManager.LoadScene(targetScene);
 	}
 }

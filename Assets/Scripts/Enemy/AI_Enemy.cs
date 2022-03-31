@@ -20,7 +20,7 @@ public class AI_Enemy : MonoBehaviour
     {
         if (IsTriggerPlayer)
         {
-            MoveDelta = Vector3.Normalize(player.position - transform.position);
+            MoveDelta = Vector3.Normalize(player.position - enemy.position);
             if (MoveDelta.x < 0)
             {
                 enemyRenderer.flipX = false;
