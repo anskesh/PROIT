@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1588956012788178511}
   - component: {fileID: 7676402614488057418}
   - component: {fileID: 6042570059589828326}
-  - component: {fileID: 7358253870351650039}
   m_Layer: 0
   m_Name: AttackTrigger
   m_TagString: Untagged
@@ -63,25 +62,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageValue: 25
   timer: 2
---- !u!114 &7358253870351650039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 606430695876781041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8181ea22cf440654e9cd3d19fe09870f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  hpBar: {fileID: 6053510546574831928}
-  dropItem: {fileID: 4987578792240543392, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
-  itemID: 9
-  minCount: 2
-  maxCount: 6
-  data: {fileID: 0}
 --- !u!1 &3462753402818302851
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,6 +168,7 @@ GameObject:
   - component: {fileID: 8972753236421092777}
   - component: {fileID: 4128078879766948340}
   - component: {fileID: 8206935101009506437}
+  - component: {fileID: 402344225846039159}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -329,6 +310,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &402344225846039159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6191357551623326255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8181ea22cf440654e9cd3d19fe09870f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  hpBar: {fileID: 6053510546574831928}
+  dropItem: {fileID: 4987578792240543392, guid: e2a6ee7e9f47c19478c78f1521876183, type: 3}
+  itemID: 9
+  minCount: 2
+  maxCount: 6
+  data: {fileID: 0}
 --- !u!1001 &3170553000325253682
 PrefabInstance:
   m_ObjectHideFlags: 0
