@@ -12,10 +12,10 @@ public class Save : MonoBehaviour
 	private int _count;
 	private List<string> _allItemsInfo;
 	private SaveObjects _saveObjects = new SaveObjects();
-	private readonly  string _path = Application.streamingAssetsPath + "/allDataToSave.json";
+	private readonly string _path = Application.streamingAssetsPath + "/allDataToSave.json";
 	private string _json;
 
-	public void SaveAll(int sceneNumber)
+	public void SaveAll()
 	{
 		SaveCave();
 		SaveHealth();
@@ -27,7 +27,7 @@ public class Save : MonoBehaviour
 	private void SaveInventory()
 	{
 		_inventory = FindObjectOfType<Inventory>();
-		if (!_inventory) return;
+		if (_inventory == null) return;
 		_items = _inventory.items;
 		_count = _items.Count;
 		_allItemsInfo = new List<string>();
@@ -40,18 +40,28 @@ public class Save : MonoBehaviour
 	private void SaveHealth()
 	{
 		var health = FindObjectOfType<PlayerHealth>();
-		if (health != null) _saveObjects.health = health.Health;
+		if (health == null) return;
+		_saveObjects.health = health.Health;
 	}
 
 	private void SaveCave()
 	{
 		var cave = FindObjectOfType<OpenCave>();
-		if (cave != null) _saveObjects.caveOpen = cave.IsOpen;
+		if (cave == null) return;
+		_saveObjects.caveOpen = cave.IsOpen;
+	}
+
+	public void Resume()
+	{
+		_json = File.ReadAllText(_path);
+		_saveObjects = JsonUtility.FromJson<SaveObjects>(_json);
 	}
 	
 	public void NewGame()
 	{
-		_json = "{\"items\":[\"0 0\",\"0 0\",\"0 0\",\"0 0\",\"0 0\",\"0 0\",\"0 0\",\"0 0\",\"0 0\",\"0 0\",\"0 0\",\"0 0\"],\"caveOpen\":false,\"health\":100}";
+		_saveObjects.health = 100;
+		_saveObjects.caveOpen = false;
+		_saveObjects.items = new List<string> {"0 0", "0 0", "0 0", "0 0", "0 0", "0 0", "0 0", "0 0", "0 0", "0 0", "0 0", "0 0"};
 	}
 }
 
