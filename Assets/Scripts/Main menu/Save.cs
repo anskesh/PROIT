@@ -17,9 +17,13 @@ public class Save : MonoBehaviour
 
 	public void SaveAll()
 	{
+		_json = File.ReadAllText(_path);
+		_saveObjects = JsonUtility.FromJson<SaveObjects>(_json);
+		
 		SaveCave();
 		SaveHealth();
 		SaveInventory();
+		
 		_json = JsonUtility.ToJson(_saveObjects);
 		File.WriteAllText(_path, _json);
 	}

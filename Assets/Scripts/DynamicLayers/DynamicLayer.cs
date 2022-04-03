@@ -9,8 +9,9 @@ public class DynamicLayer : MonoBehaviour
 	private Transform _target;
 	private void Awake()
 	{
-		_sprite = gameObject.GetComponent<SpriteRenderer>();
-		_target = FindObjectOfType<PlayerConfig>().transform;
+		if (gameObject.TryGetComponent(out SpriteRenderer sprite)) _sprite = sprite;
+		else _sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
+		_target = FindObjectOfType<PlayerConfig>().transform.GetChild(0);
 	}
 
 	private void LateUpdate()
