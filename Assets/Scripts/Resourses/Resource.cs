@@ -1,42 +1,38 @@
 using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
-public class Resource : MonoBehaviour, IPointerClickHandler
+public class Resource : MonoBehaviour, IMineable
 {
     [SerializeField] private int type; // 0 - мобы, 1 - собираются без инструментов, 2 - собираются при помощи инструментов
-    [SerializeField] private int typeSize; // 1 - мелкий, 2 - большой
+    [SerializeField] private int typeSize; // 1 - мелкий, 2 - средний, 3 - большой
     [SerializeField] private int[] id; // типы ресурса, которые выпадают
     [SerializeField] private int typeTool; // 1 - меч, 2 - кирка, 3 - топор
+    
     private int[] _count = new int[2];
-    private bool _isNear = false;
-    private int _damage = 15;
+    private int _minHealth = 15;
     private Spawner _spawner;
-    private int _health;
+    private int _health = 100;
+    public bool IsNear { get; set; }
 
     private void Awake()
     {
-        if (typeSize == 1) _health = _damage;
-        else _health = Random.Range(_damage + 1, _damage * 2 + 1) * typeSize;
+        if (typeSize == 1) _health = _minHealth;
+        if (type == 2) _health = _health / 2;
         _spawner = GetComponentInChildren<Spawner>();
     }
-    
-    public void OnPointerClick(PointerEventData eventData)
+
+    public void MineResource()
     {
-        if (CanApplyDamage() && _isNear && HasTool())
+        if (CanApplyDamage() && HasTool())
         {
             float muliplierDamage = FindObjectOfType<TakeTools>().MultiplierDamage;
-            TakeDamage((int) (_damage * muliplierDamage));
-            if (typeSize == 1) muliplierDamage = 1; // если ресурс ломается с одного удара - не увеличиваем количество предметов 
-            _count[0] = (int) (Random.Range(2, 5) * muliplierDamage);
-            _count[1] = (int) (Random.Range(0, 3) * typeSize * muliplierDamage);
-            _spawner.SpawnResource(id, _count);
+            TakeDamage((int) (_minHealth * muliplierDamage));
+            StartCoroutine(ChangeColor());
         }
     }
-
+    
     private bool HasTool()
     {
         if (type == 2)
@@ -48,7 +44,7 @@ public class Resource : MonoBehaviour, IPointerClickHandler
             else
             {
                 string toolName = tools[typeTool - 1]; 
-                StartCoroutine(FindObjectOfType<Coroutines>().ShowText(toolName));
+                StartCoroutine(Utils.ShowText(toolName));
                 return false;
             }
         }
@@ -61,24 +57,30 @@ public class Resource : MonoBehaviour, IPointerClickHandler
         _health -= damage;
         if (_health <= 0) Destroy();
     }
-
+    private IEnumerator ChangeColor()
+    {
+        var sprite = gameObject.GetComponent<SpriteRenderer>();
+        sprite.color = Color.Lerp(sprite.color, Color.red, 1f);
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = Color.Lerp(sprite.color, Color.white, 1f);
+    }
+    
     private void Destroy()
     {
+        if (typeSize == 1) {
+            _count[0] = (int) (Random.Range(1, 4));
+        }
+        else if (typeSize == 2)
+        {
+            _count[0] = (int) (Random.Range(1, 4));
+            _count[1] = (int) (Random.Range(0, 2));
+        }
+        else if (typeSize == 3)
+        {
+            _count[0] = (int) (Random.Range(3, 6));
+            _count[1] = (int) (Random.Range(0, 3));
+        }
+        _spawner.SpawnResource(id, _count);
         Destroy(gameObject);
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "PlayerItemTrigger")
-        {
-            _isNear = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "PlayerItemTrigger")
-        {
-            _isNear = false;
-        }
     }
 }

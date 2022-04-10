@@ -50,7 +50,7 @@ public class CraftButton : MonoBehaviour
     {
         if (idCraft != 0)
         {
-            GameObject throwItem = Instantiate(itemPrefab, transform.parent.parent.parent.position + new Vector3(0, -2, 0), new Quaternion());
+            GameObject throwItem = Instantiate(this.itemPrefab, transform.parent.parent.parent.position + new Vector3(0, -2, 0), new Quaternion());
             ItemPrefabClass itemPrefabClass = throwItem.GetComponent<ItemPrefabClass>();
             itemPrefabClass.ID = idCraft;
             itemPrefabClass.Count = countCraft;

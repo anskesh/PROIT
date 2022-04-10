@@ -15,6 +15,7 @@ public class OpenCave : MonoBehaviour
 		if (IsOpen)
 		{
 			gameObject.GetComponent<SpriteRenderer>().sprite = openCave;
+			gameObject.GetComponent<CircleCollider2D>().enabled = false;
 			var child = gameObject.transform.GetChild(0).gameObject;
 			child.SetActive(true);
 		}
@@ -22,12 +23,13 @@ public class OpenCave : MonoBehaviour
 
 	private void OnTriggerStay2D(Collider2D other)
 	{
-		if (other.TryGetComponent(out PlayerConfig player) && !IsOpen)
+		if (other.TryGetComponent(out Movement player) && !IsOpen)
 		{
 			gameObject.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
 			if (Input.GetKey(KeyCode.E) && HasKey())
 			{
 				gameObject.GetComponent<SpriteRenderer>().sprite = openCave;
+				gameObject.GetComponent<CircleCollider2D>().enabled = false;
 				var child = gameObject.transform.GetChild(0).gameObject;
 				child.SetActive(true);
 				IsOpen = true;
@@ -38,7 +40,7 @@ public class OpenCave : MonoBehaviour
 
 	private void OnTriggerExit2D(Collider2D other)
 	{
-		if (other.TryGetComponent(out PlayerConfig player))
+		if (other.TryGetComponent(out Movement player))
 		{
 			gameObject.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
 		}
@@ -47,7 +49,7 @@ public class OpenCave : MonoBehaviour
 	private bool HasKey()
 	{
 		var key = FindObjectOfType<Inventory>().SearchForSameItem(13);
-		if (key.Count == 0) StartCoroutine(FindObjectOfType<Coroutines>().ShowText("ключ"));
+		if (key.Count == 0) StartCoroutine(Utils.ShowText("ключ"));
 		return key.Count > 0;
 	}
 }

@@ -13,6 +13,7 @@ public class TakeTools : MonoBehaviour
     private SpriteRenderer _spriteTool = null;
     private Inventory _inventory;
     public float MultiplierDamage { get; private set; } = 1f;
+    public float MultiplierEnemyDamage { get; private set; } = 1f;
 
     public int Id
     {
@@ -70,6 +71,7 @@ public class TakeTools : MonoBehaviour
     public void ClearTool()
     {
         MultiplierDamage = 1;
+        MultiplierEnemyDamage = 1;
         _id = 0;
         _name = "";
         _tool = null;
@@ -77,21 +79,27 @@ public class TakeTools : MonoBehaviour
     }
     private void TakeTool(int[] ids)
     {
+        MultiplierDamage = 1;
+        MultiplierEnemyDamage = 1;
         _item = _inventory.SearchItemById(ids);
         if (_item == null) return;
         _tool = _item.img;
         _id = _item.id;
         _name = _item.name;
-        if (_item.name.Contains("Топазн")) MultiplierDamage = 1.5f;
+        if (_item.name.Contains("меч")) MultiplierEnemyDamage = 1.5f;
+        if (_item.name.Contains("Топазн"))
+        {
+            MultiplierDamage = 1.5f;
+        }
         _spriteTool.sprite = _tool;
     }
 
     private void Heal(int heal = 15)
     {
-        PlayerHealth playerHealth = FindObjectOfType<PlayerHealth>();
-        if (playerHealth.Health < 100)
+        Player player = FindObjectOfType<Player>();
+        if (player.Health < 100)
         {
-            playerHealth.AddHealth(heal);
+            player.AddHealth(heal);
             _inventory.DeleteCertainAmountItem(_id, 1);
         }
     }

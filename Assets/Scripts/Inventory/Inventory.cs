@@ -184,27 +184,21 @@ public class Inventory : MonoBehaviour
         return count;
     }
 
-    public void ThrowItem(int idInventory)
+    public void ThrowItem(int idInventory, Transform parent)
     {
         if (items[idInventory].id != 0)
         {   
-            GameObject throwItem = Instantiate(itemPrefab, transform.parent.parent.parent.position + new Vector3(0,2,0), new Quaternion());
+            GameObject throwItem = Instantiate(this.itemPrefab, parent.position + new Vector3(0,2,0), new Quaternion());
             ItemPrefabClass itemPrefabClass = throwItem.GetComponent<ItemPrefabClass>();
             itemPrefabClass.ID = items[idInventory].id;
             itemPrefabClass.Count = items[idInventory].count;
 
-            TakeTools _takeTools;
-            _takeTools = FindObjectOfType<TakeTools>();
-            if (items[idInventory].id == _takeTools.Id)
-            {
-                _takeTools.ClearTool();
-            }
-
+            TakeTools takeTools = FindObjectOfType<TakeTools>();
+            if (items[idInventory].id == takeTools.Id) takeTools.ClearTool();
             items[idInventory].id = 0;
             items[idInventory].count = 0;
             items[idInventory].itemGameObj.GetComponent<Image>().sprite = data.items[0].img;
             UpdateInventory();
-            
         }
     }
 

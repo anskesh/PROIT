@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 4171085215574711990}
   - component: {fileID: 4171085215574711993}
   - component: {fileID: 4171085215574711992}
-  - component: {fileID: 4171085215574711991}
   - component: {fileID: -3079547606621724620}
-  - component: {fileID: 5071795896364554989}
+  - component: {fileID: 5538707679747358811}
   m_Layer: 0
   m_Name: Big green ore
   m_TagString: Untagged
@@ -100,10 +99,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.72176707}
+  m_Offset: {x: 0, y: -0.15574908}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.2159929}
     oldSize: {x: 1.9375, y: 1.8125}
     newSize: {x: 1.9375, y: 1.78125}
     adaptiveTilingThreshold: 0.5
@@ -111,20 +110,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9375, y: 0.47351277}
+  m_Size: {x: 1.9375, y: 0.5220146}
   m_EdgeRadius: 0
---- !u!114 &4171085215574711991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4171085215574711995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a445c84119f99f4faedab04ee153167, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-3079547606621724620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,11 +125,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  typeSize: 2
+  typeSize: 3
   id: 070000000e000000
   typeTool: 2
---- !u!61 &5071795896364554989
-BoxCollider2D:
+--- !u!60 &5538707679747358811
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -154,19 +141,33 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.026836067}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.2159929}
     oldSize: {x: 1.9375, y: 1.8125}
     newSize: {x: 1.9375, y: 1.78125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.9375, y: 1.8661721}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.5166459, y: 0.7005947}
+      - {x: 0.41446424, y: 1.4210129}
+      - {x: 0.3120618, y: 1.382133}
+      - {x: 0.038879752, y: 0.8747951}
+      - {x: -0.030866861, y: 0.46884102}
+      - {x: -0.2826787, y: 0.39926487}
+      - {x: -0.61780834, y: 0.6553148}
+      - {x: -0.7850697, y: 0.20526065}
+      - {x: -0.96875, y: -0.015318736}
+      - {x: -0.96875, y: -0.32898712}
+      - {x: -0.90625, y: -0.39148712}
+      - {x: 0.96875, y: -0.39148712}
+      - {x: 0.9376459, y: -0.038646698}
+      - {x: 0.76897156, y: 0.2593373}
+      - {x: 0.71170425, y: 0.73395103}
 --- !u!1001 &5254738933340038127
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,11 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5742944792336246743}
-  - component: {fileID: 5742944792336246741}
   - component: {fileID: 5742944792336246740}
   - component: {fileID: 5742944792336246738}
   - component: {fileID: -3001744452436048583}
-  - component: {fileID: 5222112620881109138}
+  - component: {fileID: 6566000793181635680}
   m_Layer: 0
   m_Name: Small green ore
   m_TagString: Untagged
@@ -36,18 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5742944792336246741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5742944792336246742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a445c84119f99f4faedab04ee153167, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &5742944792336246740
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -112,10 +99,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.29798698}
+  m_Offset: {x: 0, y: -0.116489395}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5128691, y: 0.34161142}
     oldSize: {x: 1, y: 0.8125}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -123,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.2560378}
+  m_Size: {x: 1, y: 0.323059}
   m_EdgeRadius: 0
 --- !u!114 &-3001744452436048583
 MonoBehaviour:
@@ -141,8 +128,8 @@ MonoBehaviour:
   typeSize: 1
   id: 07000000
   typeTool: 2
---- !u!61 &5222112620881109138
-BoxCollider2D:
+--- !u!60 &6566000793181635680
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -154,19 +141,35 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.019597828}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5128691, y: 0.34161142}
     oldSize: {x: 1, y: 0.8125}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.85169566}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.4003988, y: 0.08795259}
+      - {x: 0.34406215, y: 0.095213436}
+      - {x: 0.32308155, y: 0.19262795}
+      - {x: 0.2834663, y: 0.24819277}
+      - {x: 0.18377598, y: 0.22356488}
+      - {x: 0.14673439, y: 0.3504622}
+      - {x: 0.12534785, y: 0.48097652}
+      - {x: -0.0102544725, y: 0.48868573}
+      - {x: -0.07811769, y: 0.2648602}
+      - {x: -0.12037108, y: 0.088378236}
+      - {x: -0.194805, y: 0.16773456}
+      - {x: -0.37344605, y: 0.15754971}
+      - {x: -0.3936461, y: -0.0065600574}
+      - {x: -0.51136, y: -0.12637755}
+      - {x: -0.5128691, y: -0.27755928}
+      - {x: 0.48713088, y: -0.27755928}
+      - {x: 0.48713088, y: -0.03746967}
 --- !u!1001 &3406857152078143715
 PrefabInstance:
   m_ObjectHideFlags: 0
