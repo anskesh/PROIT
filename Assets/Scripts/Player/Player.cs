@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxHealth = 100;
     private float _currentHealth;
     private Inventory _inventory;
+    private InventoryCell _inventoryCell;
 
     public int Damage { get; set; } = 15;
     public event Action<float> HealthChanged;
@@ -26,7 +27,8 @@ public class Player : MonoBehaviour
     {
         FindObjectOfType<Load>().LoadHealth();
         HealthChanged?.Invoke(Health / maxHealth);
-        _inventory = FindObjectOfType<Inventory>().GetComponent<Inventory>();
+        _inventory = FindObjectOfType<Inventory>();
+        _inventoryCell = FindObjectOfType<InventoryCell>();
     }
 
     public void ApplyDamage(int damage)
@@ -50,9 +52,14 @@ public class Player : MonoBehaviour
     private void Die()
     {
         Dead?.Invoke();
-        for (var i = 0; i < _inventory.maxCount; i++)
+        FindObjectOfType<ItemPickup>().gameObject.GetComponent<Collider2D>().enabled = false;
+        /*for (var i = 0; i < _inventory.maxCount; i++)
         {
             _inventory.ThrowItem(i, transform);
+        }*/
+        for (var i = 0; i < _inventoryCell.CountCell; i++)
+        {
+            _inventoryCell.ThrowItem(i, transform);
         }
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - PlayerHp
   - Info
+  - Inventory
   layers:
   - Default
   - TransparentFX

@@ -20,13 +20,13 @@ public class ItemPrefabClass : MonoBehaviour
     {
         item = FindObjectOfType<DataBase>().GetItemByID(_id);
         gameObject.GetComponent<SpriteRenderer>().sprite = item.img;
-        gameObject.GetComponentInChildren<Text>().text = "x" + Count;
+        if (Count > 0) gameObject.GetComponentInChildren<Text>().text = "x" + Count;
         StartCoroutine(RemoveResource());
     }
 
     private IEnumerator RemoveResource()
     {
-        yield return new WaitForSeconds(60f);
+        yield return new WaitForSeconds(180f);
         DestroyItem();
     }
     public void DestroyItem()

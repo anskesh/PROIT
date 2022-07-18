@@ -26,10 +26,6 @@ public class Load : MonoBehaviour
 		LoadJson();
 		_inventory = FindObjectOfType<Inventory>();
 		if (!_inventory) return;
-		_items = _inventory.items;
-		_count = _items.Count;
-		_allItemsInfo = new List<string>();
-		if (!_inventory) return;
 		
 		var index = 0;
 		foreach (var item in _saveObjects.items)
@@ -44,6 +40,25 @@ public class Load : MonoBehaviour
 			_inventory.AddInventoryItem(index, _template);
 			index++;
 		}
+	}
+
+	public void LoadTestInventory()
+	{
+		LoadJson();
+		var _inv = FindObjectOfType<InventoryCell>();
+		var _template = new List<ItemAsset>();
+		
+		foreach (var item in _saveObjects.items)
+		{
+			var items = item.Split(' ');
+			var id = Convert.ToInt32(items[0]);
+			var count = Convert.ToInt32(items[1]);
+			
+			var assetItem = _inv.SearchItemById(id);
+			assetItem.Count = count;
+			_template.Add(assetItem);
+		}
+		_inv.Render(_template);
 	}
 	
 	public void LoadHealth()

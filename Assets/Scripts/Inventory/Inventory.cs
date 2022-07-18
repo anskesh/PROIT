@@ -15,7 +15,6 @@ public class Inventory : MonoBehaviour
     public int maxCount;
     public int maxItemStack = 32;
 
-    public Camera cam;
     private EventSystem es;
 
     public int currentID;

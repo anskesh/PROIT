@@ -6,12 +6,18 @@ using Random = UnityEngine.Random;
 
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
-    [SerializeField] protected float maxHealth;
-    [SerializeField] protected Image hpBar;
-    [SerializeField] private GameObject dropItem;
-    [SerializeField] protected int itemID;
-    [SerializeField] protected int minCount;
-    [SerializeField] protected int maxCount;
+    [SerializeField]
+    protected float maxHealth;
+    [SerializeField]
+    protected Image hpBar;
+    [SerializeField]
+    private GameObject dropItem;
+    [SerializeField]
+    protected int itemID;
+    [SerializeField]
+    protected int minCount;
+    [SerializeField]
+    protected int maxCount;
     
     protected float _currentHealth;
     protected bool isDead;

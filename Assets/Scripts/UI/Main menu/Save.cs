@@ -14,16 +14,20 @@ public class Save : MonoBehaviour
 	private SaveObjects _saveObjects = new SaveObjects();
 	private readonly string _path = Application.streamingAssetsPath + "/allDataToSave.json";
 	private string _json;
+	private bool _isNewGame;
 	
 
 	public void SaveAll()
 	{
-		_json = File.ReadAllText(_path);
-		_saveObjects = JsonUtility.FromJson<SaveObjects>(_json);
-		
+		if (!_isNewGame)
+		{
+			_json = File.ReadAllText(_path);
+			_saveObjects = JsonUtility.FromJson<SaveObjects>(_json);
+			
 		SaveCave();
 		SaveHealth();
 		SaveInventory();
+		}
 		
 		_json = JsonUtility.ToJson(_saveObjects);
 		File.WriteAllText(_path, _json);
@@ -67,6 +71,7 @@ public class Save : MonoBehaviour
 		_saveObjects.health = 100;
 		_saveObjects.caveOpen = false;
 		_saveObjects.items = new List<string> {"0 0", "0 0", "0 0", "0 0", "0 0", "0 0", "0 0", "0 0", "0 0", "0 0", "0 0", "0 0"};
+		_isNewGame = true;
 	}
 }
 

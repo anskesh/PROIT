@@ -18,7 +18,7 @@ public class Boss : Enemy
 		_bossMove = GetComponentInChildren<BossAI>();
 	}
 
-	private void OnTriggerEnter2D(Collider2D col)
+	private void OnTriggerStay2D(Collider2D col)
 	{
 		if (col.CompareTag("Player"))
 		{
@@ -38,17 +38,19 @@ public class Boss : Enemy
 
 	protected override void UpdateHealthBar()
 	{
-		if (hpBar != null) hpBar.fillAmount = _currentHealth / maxHealth;
+		hpBar.fillAmount = _currentHealth / maxHealth;
 		HealthChanged?.Invoke(_currentHealth / maxHealth);
 	}
 	
 	protected override void Dead()
 	{
-		isDead = true;
 		_bossMove.SpeedMultiply = 0;
+		transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>().enabled = false;
+		transform.GetChild(1).gameObject.GetComponent<CircleCollider2D>().enabled = false;
+		Destroy(hpBar.transform.parent.parent.gameObject);
 		BattleStarted?.Invoke(false, bossName);
 		_animator.SetBool("isDead", true);
-		hpBar.transform.parent.parent.gameObject.SetActive(false);
+		isDead = true;
 		ThrowItem();
 		Destroy(gameObject, 2f);
 	}

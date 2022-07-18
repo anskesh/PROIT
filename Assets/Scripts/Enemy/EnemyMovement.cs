@@ -9,13 +9,14 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Transform enemy;
     
     private Transform _player;
-    private bool isPlayerNear = false;
+    private bool _isPlayerNear;
     private Vector3 _direction;
 
     private void FixedUpdate()
     {
-        if (isPlayerNear)
+        if (_isPlayerNear)
         {
+            if (Vector3.Distance(_player.position, transform.position) < 1.4) return;
             _direction = Vector3.Normalize(_player.position - enemy.position);
             if (_direction.x <= 0)
             {
@@ -37,7 +38,7 @@ public class EnemyMovement : MonoBehaviour
         if (collision.TryGetComponent(out Player player))
         {
             _player = player.transform;
-            isPlayerNear = true;
+            _isPlayerNear = true;
         }
     }
 
@@ -45,7 +46,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.TryGetComponent(out Player player))
         {            
-            isPlayerNear = false;
+            _isPlayerNear = false;
         }
     }
 

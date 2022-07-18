@@ -23,9 +23,17 @@ public class ItemPickup : MonoBehaviour
     {
         if (collision.tag == "Item")
         {
+            var item = collision.GetComponent<ItemPrefabClass>();
             colItem = collision.GetComponent<ItemPrefabClass>().item;
-            countPickup = collision.GetComponent<ItemPrefabClass>().Count;
-            countPickup = _inventory.AddItemToInventory(colItem, countPickup);
+            // countPickup = collision.GetComponent<ItemPrefabClass>().Count;
+            
+            var count = collision.GetComponent<ItemPrefabClass>().Count;
+            
+            // countPickup = _inventory.AddItemToInventory(colItem, countPickup);
+            
+            var _inv = FindObjectOfType<InventoryCell>();
+            countPickup = _inv.AddItem(colItem.id, count);
+            
             if (countPickup == 0)
             {
                 collision.GetComponent<ItemPrefabClass>().DestroyItem();

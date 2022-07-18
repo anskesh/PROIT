@@ -38,7 +38,8 @@ public class DeathScreen : MonoBehaviour
         
         resume.gameObject.SetActive(false);
         exit.gameObject.SetActive(false);
-        FindObjectOfType<CursorIndicator>().IsDead = false;
+        FindObjectOfType<CursorIndicator>().PlayerDead = false;
+        FindObjectOfType<ItemPickup>().gameObject.GetComponent<Collider2D>().enabled = true;
         
         player.SetMaxHealth();
     }

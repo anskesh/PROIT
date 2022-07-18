@@ -37,6 +37,7 @@ public class BossHealthBar : MonoBehaviour
     {
         bossName.text = typeName;
         container.alpha = 1;
+        if (smallHealthBar == null) return;
         smallHealthBar.gameObject.SetActive(false);
     }
 
@@ -44,6 +45,7 @@ public class BossHealthBar : MonoBehaviour
     {
         container.alpha = 0;
         bossName.text = "";
+        if (smallHealthBar == null) return;
         smallHealthBar.gameObject.SetActive(true);
     }
 }

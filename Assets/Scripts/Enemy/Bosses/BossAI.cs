@@ -20,6 +20,7 @@ public class BossAI : MonoBehaviour
     {
         if (IsTriggerPlayer && SpeedMultiply > 0)
         {
+            if (Vector3.Distance(player.position, transform.position) < 1.4) return;
             _animator.SetBool("isMove", true);
             MoveDelta = Vector3.Normalize(player.position - transform.position);
             if (MoveDelta.x < 0)

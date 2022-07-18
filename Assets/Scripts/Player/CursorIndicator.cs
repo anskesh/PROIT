@@ -9,11 +9,11 @@ public class CursorIndicator : MonoBehaviour
 	[SerializeField] private Player player;
 	[SerializeField] private Animator animatorTool;
 	private TakeTools _tool;
-	private float _cooldown = 0.8f;
+	private float _cooldown = 0.5f;
 	private float _timer = 0;
 	private Camera _camera;
 	
-	public bool IsDead { get; set; }
+	public bool PlayerDead { get; set; }
 
 	private void Start()
 	{
@@ -33,43 +33,67 @@ public class CursorIndicator : MonoBehaviour
 
 	private void Update ()
 	{
-		/*var ray = _camera.ScreenPointToRay(Input.mousePosition);
-		cursor.position = ray.origin;*/
+		if (PlayerDead) return;
+		MoveCursor();
 		if (Input.GetMouseButton(0) && _timer <= 0)
 		{
 			_timer = _cooldown;
 			SearchAndDoAction();
 		}
 		else _timer -= Time.deltaTime;
-		if (Input.GetMouseButtonDown(0)) SearchAndDoAction();
 	}
 
 	private void SearchAndDoAction()
 	{
-		if (IsDead) return;
 		var ray = _camera.ScreenPointToRay(Input.mousePosition);
 		var hit = Physics2D.Raycast(ray.origin, ray.direction);
-		if (hit.collider != null)
+		if (!hit) return;
+		if (hit.collider.TryGetComponent(out IMineable mineable))
 		{
-			if (hit.collider.TryGetComponent(out IMineable mineable))
+			if (mineable.IsNear)
 			{
-				if (mineable.IsNear)
-				{
-					StartCoroutine(DoAction());
-					mineable.MineResource();
-				}
+				StartCoroutine(DoAction());
+				mineable.MineResource();
 			}
-			else if (hit.collider.TryGetComponent(out IDamageable damageable))
+		}
+		else if (hit.collider.TryGetComponent(out IDamageable damageable))
+		{
+			if (damageable.IsNear)
 			{
-				if (damageable.IsNear)
-				{
-					StartCoroutine(DoAction());
-					damageable.ApplyDamage((int) (player.Damage * _tool.MultiplierEnemyDamage));
-				}
+				StartCoroutine(DoAction());
+				damageable.ApplyDamage((int) (player.Damage * _tool.MultiplierEnemyDamage));
 			}
 		}
 	}
-	
+
+	private void MoveCursor()
+	{
+		var ray = _camera.ScreenPointToRay(Input.mousePosition);
+		var hit = Physics2D.Raycast(ray.origin, ray.direction);
+		if (!hit)
+		{
+			cursor.gameObject.SetActive(false);
+			return;
+		}
+		if (hit.collider.TryGetComponent(out IMineable mineable))
+		{
+			if (mineable.IsNear)
+			{
+				cursor.gameObject.SetActive(true);
+				cursor.position = ray.origin;
+			}
+		}
+
+		if (hit.collider.TryGetComponent(out IDamageable damageable))
+		{
+			if (damageable.IsNear)
+			{
+				cursor.gameObject.SetActive(true);
+				cursor.position = ray.origin;
+			}
+		}
+	}
+
 	private void OnTriggerEnter2D(Collider2D col)
 	{
 		if (col.gameObject.TryGetComponent(out IDamageable damageable)) damageable.IsNear = true;
@@ -91,6 +115,6 @@ public class CursorIndicator : MonoBehaviour
 
 	private void OnDead()
 	{
-		IsDead = true;
+		PlayerDead = true;
 	}
 }
